@@ -1,0 +1,132 @@
+﻿* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	display: block;
+	padding: 20px;
+}
+
+a:hover {
+	background: #677a89;
+}
+
+ul {
+	display: flex;
+}
+
+li {
+	list-style: none;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	overflow-x: hidden;
+	background: url("../img/logo.jpg");
+	background-size: cover;
+	background-attachment: fixed; 
+
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	top: 0;
+	left: 0
+	;
+	width: 100%;
+	/*background: #242424;*/
+	background: #5E717F;
+
+	z-index: 100;
+
+	box-shadow: 0 0 50px rgba(0,0,0, 0.7);
+
+	position: fixed;
+}
+
+header .header_content {
+	width: 75%;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.flying_text {
+	font-size: 65px;
+	text-align: center;
+	opacity: 0;
+
+	color: white;
+	position: absolute;
+
+	font-weight: 900;
+
+	text-shadow: 1px 1px 9px black;
+
+	-webkit-transition: all 2s;
+	transition: all 2s;
+}
+
+/* Для плавного отображения текста */ 
+.active {
+	opacity: 1;
+}
+
+/*.backHead {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	z-index: -100;
+
+	position: fixed;
+}*/
+
+/*.content_wrapper {
+	position: relative;
+}
+*/
+.content_wrapper {
+	width: 100%;
+	flex-grow: 1;
+}
+
+.content_wrapper .content {
+	width: 75%;
+	margin: auto;
+	background: white;
+
+	box-shadow: 0 0 50px rgba(0,0,0, 0.7);
+	border-radius: 5px;
+
+	padding: 10px;
+}
+
+#footer {
+	background: #5E717F;
+	display: block;
+	color: white;
+	position: relative;
+
+	box-shadow: 0px 0px 49px 0px #000000;
+	margin-top: 150px;
+}
+
+#footer .footer_content {
+	width: 75%;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+#footer .footer_content p {
+	padding: 25px 0;
+}

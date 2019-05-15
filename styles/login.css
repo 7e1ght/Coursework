@@ -1,0 +1,48 @@
+.content_wrapper {
+	width: auto;
+	margin: auto;
+	margin-top: 15%;
+	display: inline-block;
+}
+
+.content_wrapper .content h2 {
+	color: black;
+	border-bottom: 2px solid black;
+}
+
+.content_wrapper .content {
+	width: auto;
+	/*display: inline-flex;*/
+	flex-direction: column;
+	text-align: center;
+	transition: all 2s;
+}
+
+.content_wrapper .content input{
+	display: block;
+	margin-top: 20px; 
+	border-radius: 10px;
+	border: 2px solid black;
+	padding: 5px 3px; 
+	width: 100%;
+}
+
+.content_wrapper .content .incorrect_data {
+	color: red;
+	margin-top: 20px;
+	display: none;
+}
+
+.content_wrapper .content input[type='submit'] {
+	margin: auto;
+	margin-top: 20px;
+	border: none;
+	background: blue;
+	color: white;
+	font-size: 18px;
+	padding: 10px;
+	font-weight: 900;
+	border-radius: 10px;
+	width: 100%;
+	cursor: pointer;
+}
