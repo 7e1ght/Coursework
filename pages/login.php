@@ -4,8 +4,9 @@
 	<?php 
 		$name = "Вход"; 
 		require_once '../pages/templates/head.php';
+
 	?>
-	
+
 	<link rel="stylesheet" href="../styles/login.css">
 
 <body>

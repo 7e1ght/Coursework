@@ -1,9 +1,8 @@
 <?php 
 	session_start();
-	require '../pages/templates/connection.php';
+	require '../scripts/my_functions.php';
 
-	$link = mysqli_connect($host, $user, $password, $database) 
-	or die("Connection error");
+	$link = conn_db('users');
 
 	if(isset($_POST['login']) and isset($_POST['pass'])) {
 		$username = $_POST['login'];

@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+?>
+
+
+
+<!-- http://via.placeholder.com/150/0000ff  -->
 <html>
 
 	<?php 
@@ -11,8 +17,8 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">  -->
-
 	<script src="scripts/script.js"></script>
+
 </head>
 
 <body onresize="resize()">
@@ -45,15 +51,16 @@
 		<p>ПУТЕШЕВСТВУЙ ВМЕСТЕ С НАМИ</p>
 		<p>В ДВА КЛИКА!</p>
 	</div>
-
+	
 	<?php 
 		if(isset($_SESSION['login'])) {
 			require_once 'pages/templates/authContent.php';
 		} else {
 			require_once 'pages/templates/noAuthContent.php';
+			require_once 'pages/templates/zoom_card.php';
 		}
 	?>
-	
+
 	<?php require 'pages/templates/footer.php'; ?>
 <!-- 	<footer id="footer">
 		<div class="footer_content">

@@ -102,12 +102,12 @@ header .header_content {
 .content_wrapper .content {
 	width: 75%;
 	margin: auto;
-	background: white;
 
 	box-shadow: 0 0 50px rgba(0,0,0, 0.7);
 	border-radius: 5px;
 
 	padding: 10px;
+
 }
 
 #footer {

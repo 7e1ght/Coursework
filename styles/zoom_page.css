@@ -1,0 +1,33 @@
+.full_card { 
+	display: none;
+	flex-direction: column;
+
+	top: 200px;
+	left: 50px;
+
+	background: white;
+
+	position: fixed;
+	z-index: 100;
+	border-radius: 10px;
+	padding: 10px;
+
+	max-width: 40%;
+}
+
+.full_card .top_box {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.full_card .top_box .img {
+}
+
+.full_card .top_box .info {
+	flex-grow: 1;
+	margin-right: 20px; 
+}
+
+.full_card .lower_box {
+	margin-top: 20px;
+}
