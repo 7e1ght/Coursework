@@ -15,10 +15,8 @@
 		$connection = conn_db(1);
 		$cur_db_table = get_db_table_by_id($tab_id);
 
-		$save = function() {
+		$save = function() use ($cur_db_table, $connection) {
 			$data = $_GET["data"];
-
-			echo var_dump(cur_db_table);
 
 			$res = mysqli_query($connection, "SHOW COLUMNS FROM " . $cur_db_table);
 
@@ -53,7 +51,7 @@
 			}
 
 			if (!$error) {
-				echo '<script> alert("Успешно сохранено."); </script>';
+				return true;
 			}
 		};
 
@@ -81,7 +79,9 @@
 				}
 			}
 		} else if($action_id == 3) {
-			$save();
+			if($save()) {
+				echo '<script> alert("Успешно сохранено."); </script>';
+			}
 		}
 	}
 
