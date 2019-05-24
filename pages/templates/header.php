@@ -22,7 +22,7 @@
 			if(isset($_SESSION['login'])) {
 				echo '<a href="../../logic/log_out.php">' . $_SESSION['login'] . '</a>';
 			} else {
-				echo '<a href="pages/login.php">Вход</a>';
+				echo '<a href="login.php">Вход</a>';
 			}
 		?>
 

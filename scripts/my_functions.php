@@ -5,7 +5,7 @@ function conn_db($db_name) {
 	$user = 'root';
 	$password = '';
 
-	$connection = mysqli_connect($host, $user, $password, $db_name);
+	$connection = mysqli_connect($host, $user, $password, 'coursework');
 
 	return $connection;
 }
@@ -33,6 +33,82 @@ function get_res_array($connection, $query) {
 
 	mysqli_free_result($query_result);
 	return $result_array;
+}
+
+function insert($table, $data) {
+	$connection = conn_db('coursework') or die("Conn error.");
+
+	$query = 'SELECT * FROM ' . $table;
+
+	$to_count_columns = mysqli_query($connection, $query) or die("Columns error.");
+	$columns_num = mysqli_num_fields($to_count_columns)-1;
+
+	if($columns_num != count($data)) {
+		die("Not equal colomns number and data.");
+	}
+
+	// $query = 'INSERT INTO clients VALUES (NULL, ';
+
+	// for($i = 0; $i < $columns_num; $i++) {
+	// 	$var = $data[$i]; 
+	// 	if(is_integer($var)) {
+	// 		$query = $query . $var;
+	// 		if ($i != $columns_num-1) {
+	// 			$query = $query . ", ";
+	// 		}
+	// 	} else if(is_string($var)){
+	// 		$query = $query . '"' . $var . '"';
+
+	// 		if ($i != $columns_num-1) {
+	// 			$query = $query . ", ";
+	// 		}
+	// 	}
+	// 	else {
+	// 		die ("Unknown type.");
+	// 	}
+	// }
+	$formar_str = "INSERT INTO " . $table . " VALUES (NULL, ";
+
+
+	for ($i=0; $i < $columns_num; $i++) { 
+		$formar_str = $formar_str."?";
+		if($i != $columns_num-1) {
+			$formar_str = $formar_str . ", ";
+		}
+	}
+
+	$formar_str = $formar_str .")";
+
+	$types = '';
+
+	for ($i=0; $i < $columns_num; $i++) { 
+		$var = $data[$i];
+		if(is_string($var)) {
+			$types = $types . 's';
+		} else if(is_integer($var)) {
+			$types = $types . 'i';
+		} else {
+			die ("Unknown type.");
+		}
+	}
+
+	$stmt = mysqli_prepare($connection, $formar_str);
+
+	mysqli_stmt_bind_param($stmt, $types, ...$data);
+
+	mysqli_stmt_execute($stmt);
+
+	mysqli_close($connection);
+}
+
+
+function update($table, $set, $conditions) {
+	$connection = conn_db('coursework');
+
+	$query = "UPDATE " . $table . " SET " . $set . " WHERE " . $conditions;
+	$res = mysqli_query($connection, $query);
+
+	mysqli_close($connection);
 }
 	
 ?>

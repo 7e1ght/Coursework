@@ -1,0 +1,34 @@
+.content_wrapper {
+	width: auto;
+	margin: 10% auto 0;
+	text-align: center;
+}
+
+.content_wrapper .content {
+	width: auto;
+	background: white;
+}
+
+.content_wrapper .content h2 {
+	color: black;
+	border-bottom: 2px solid black;
+}
+
+.content_wrapper .content form {
+	display: flex;
+	flex-direction: column;
+}
+
+.content_wrapper .content label {
+	margin-top: 20px;
+}
+
+.content_wrapper .content input {
+	margin-top: 5px;
+	
+	width: 100%;
+}
+
+.content_wrapper .content input[type="submit"] {
+	margin-top: 20px;
+}

@@ -1,0 +1,116 @@
+@my_px: 10px;
+@my_blue: #0000FF;
+@border_thickness: 1px;
+
+.active_tab_name {
+	color: black;
+	background: white;
+
+	border-top: @border_thickness solid black;
+	border-right: @border_thickness solid black;
+	border-left: @border_thickness solid black;
+}
+
+.inactive_tab_name {
+	color: white;
+	background: @my_blue;
+	box-shadow: inset 0px 0px 0px @border_thickness black;
+}
+
+.content_wrapper {
+	margin-top: 20%;
+
+	.content {
+		width: 90%;
+		background: white; 
+
+
+		#tabs {
+			border-radius: @my_px;
+			padding: @my_px;
+
+			#tab_names {
+				display: flex;
+				position: relative;
+				z-index: 1;
+				.tab_name {
+					cursor: pointer;
+					padding: 5px;
+
+					border-radius: @my_px @my_px 0 0;
+				}
+			}
+			
+			#tab_contents {
+				position: relative;
+				top: -1px;
+				.tab_content {
+					height: 500px;
+					overflow: scroll;
+					padding: @my_px;
+					border: @border_thickness solid black;
+					border-radius: 0 @my_px @my_px @my_px;
+				}
+			}
+		}
+
+
+		table {
+			border-spacing: 0;
+			border: 1px solid black;
+			text-align: center;
+
+			input[type='checkbox'] {
+				margin: 10px;
+			}
+
+
+			thead {
+				background: blue;
+
+				th {
+					padding: 10px;
+					color: white;
+				}
+			}
+
+			tbody {
+				
+				td {
+					padding: 10px;
+				}
+
+				&:hover {
+					background: red;
+				}
+
+			}
+
+		}
+
+
+		.buttons {
+			.but_container {
+				display: flex;	
+				flex-direction: row-reverse;
+			}
+			.but {
+				background: blue;
+				color: white;
+				font-weight: 900;
+				font-size: 18px;
+				text-align: center;
+				padding: 10px;
+				border-radius: 10px;
+				cursor: pointer;
+			}
+
+			.modify_buts {
+				justify-content: space-between;
+				margin-bottom: 10px;
+			}
+		}
+
+	}
+}
+

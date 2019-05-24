@@ -37,7 +37,12 @@ if($_GET['sort_id']) {
 	// }
 } else {
 	$goods = get_goods($connection);
-	add_cards($goods);
+
+	if($goods != null) {
+		add_cards($goods);
+	} else {
+		echo "Влад, добавь туры.";
+	}
 }
 
 

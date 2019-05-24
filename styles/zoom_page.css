@@ -1,4 +1,5 @@
-.full_card { 
+.full_card {
+
 	display: none;
 	flex-direction: column;
 
@@ -20,7 +21,8 @@
 	flex-wrap: wrap;
 }
 
-.full_card .top_box .img {
+.full_card .top_box img {
+	border-radius: 10px;
 }
 
 .full_card .top_box .info {
@@ -30,4 +32,19 @@
 
 .full_card .lower_box {
 	margin-top: 20px;
+	word-wrap: break-word;
+}
+
+.full_card .buy_block {
+	margin-top: 10px;
+	text-align: center;
+
+	display: block;
+}
+
+.full_card .buy_block a {
+	background: blue;
+	display: block;
+	border-radius: 10px;
+	padding: 10px;
 }

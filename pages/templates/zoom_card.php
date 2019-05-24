@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="styles/zoom_page.css">
+
 <div class="full_card">
 <!-- 		<div class="top_box">
 		<div class="info">

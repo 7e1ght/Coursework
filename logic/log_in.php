@@ -2,7 +2,7 @@
 	session_start();
 	require '../scripts/my_functions.php';
 
-	$link = conn_db('users');
+	$link = mysqli_connect('localhost', 'root', '', 'users');
 
 	if(isset($_POST['login']) and isset($_POST['pass'])) {
 		$username = $_POST['login'];

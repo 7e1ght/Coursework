@@ -1,11 +1,10 @@
 <link rel="stylesheet" href="../../styles/catalog.css">
-<link rel="stylesheet" href="styles/zoom_page.css">
 <script src="../../scripts/card_handler.js"></script>
 
 <div class="content_wrapper">
 	<div class="content"> 
 		<?php 
-			include 'scripts/my_functions.php';
+			include_once 'scripts/my_functions.php';
 
 			$connection = conn_db('coursework');
 
@@ -16,6 +15,7 @@
 
 			$array = get_goods($connection);
 
+			mysqli_close($connection);
 		?>
 		
 		<!-- Задел на Сортировку

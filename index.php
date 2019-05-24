@@ -17,12 +17,11 @@ session_start();
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">  -->
-	<script src="scripts/script.js"></script>
-
 </head>
 
 <body onresize="resize()">
 	<?php require_once 'pages/templates/header.php'; ?>
+	
 <!-- 	<header>
 		<div class="header_content">
 
@@ -46,22 +45,30 @@ session_start();
 	</header> -->
 
 	<!-- <img src="img/logo.jpg" alt="" class="backHead"> -->
-	
-	<div class="flying_text">
-		<p>ПУТЕШЕВСТВУЙ ВМЕСТЕ С НАМИ</p>
-		<p>В ДВА КЛИКА!</p>
-	</div>
+
+	<?php  
+		require_once 'scripts/my_functions.php';
+	?>
 	
 	<?php 
 		if(isset($_SESSION['login'])) {
 			require_once 'pages/templates/authContent.php';
 		} else {
+			echo 
+			'
+				<script src="scripts/script.js"></script>
+
+				<div class="flying_text">
+					<p>ПУТЕШЕВСТВУЙ ВМЕСТЕ С НАМИ</p>
+					<p>В ДВА КЛИКА!</p>
+				</div>
+			';
 			require_once 'pages/templates/noAuthContent.php';
 			require_once 'pages/templates/zoom_card.php';
 		}
 	?>
 
-	<?php require 'pages/templates/footer.php'; ?>
+	<?php require_once 'pages/templates/footer.php'; ?>
 <!-- 	<footer id="footer">
 		<div class="footer_content">
 			Vlad

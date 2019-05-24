@@ -8,12 +8,6 @@
 a {
 	text-decoration: none;
 	color: white;
-	display: block;
-	padding: 20px;
-}
-
-a:hover {
-	background: #677a89;
 }
 
 ul {
@@ -40,8 +34,7 @@ body {
 
 header {
 	top: 0;
-	left: 0
-	;
+	left: 0;
 	width: 100%;
 	/*background: #242424;*/
 	background: #5E717F;
@@ -58,6 +51,15 @@ header .header_content {
 	margin: auto;
 	display: flex;
 	justify-content: space-between;
+}
+
+header .header_content a{
+	display: block;
+	padding: 20px;
+}
+
+header .header_content a:hover {
+	background: #677a89;
 }
 
 .flying_text {
@@ -107,7 +109,25 @@ header .header_content {
 	border-radius: 5px;
 
 	padding: 10px;
+}
 
+.content_wrapper .content input{
+	border-radius: 10px;
+	border: 2px solid black;
+	padding: 5px 3px; 
+}
+
+.content_wrapper .content input[type='submit'] {
+	margin: auto;
+	border: none;
+	background: blue;
+	color: white;
+	font-size: 18px;
+	padding: 10px;
+	font-weight: 900;
+	border-radius: 10px;
+	cursor: pointer;
+	display: block;
 }
 
 #footer {

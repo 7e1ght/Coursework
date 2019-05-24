@@ -12,7 +12,7 @@ $(document).ready(
 		});
 
 
-		set_sort();
+		//set_sort();
 		set_click();
 	}
 );
@@ -49,7 +49,9 @@ function set_sort() {
 function set_click() {
 	$(".catalog").on("click", ".cards",
 		function() {
-			var id = $(this).attr("id").substr(-1);
+
+			var id = $(this).attr("id");//.substr(-1);
+			id = id.match(/[0-9]+/);
 			$.ajax({
 				url: "pages/templates/zoom_card_creater.php",
 				data: "card_id="+id,

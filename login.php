@@ -3,20 +3,19 @@
 
 	<?php 
 		$name = "Вход"; 
-		require_once '../pages/templates/head.php';
-
+		require_once 'pages/templates/head.php';
 	?>
 
-	<link rel="stylesheet" href="../styles/login.css">
+	<link rel="stylesheet" href="styles/login.css">
 
 <body>
 
-	<?php require_once '../pages/templates/header.php' ?>;
+	<?php require_once 'pages/templates/header.php' ?>;
 
 
 	<div class="content_wrapper">
 		<div class="content">
-			<form action="../logic/log_in.php" method="POST">
+			<form action="logic/log_in.php" method="POST">
 				<h2>Авторизация</h2>	
 				<input type="text" name="login" id="login" placeholder="Логин">
 				<input type="password" name="pass" id="pass" placeholder="Пароль">
@@ -25,7 +24,7 @@
 		</div>
 	</div>
 
-	<?php require_once '../pages/templates/footer.php'; ?> 
+	<?php require_once 'pages/templates/footer.php'; ?> 
 
 </body>
 </html>

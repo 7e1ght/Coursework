@@ -21,11 +21,9 @@
 
 .content_wrapper .content input{
 	display: block;
-	margin-top: 20px; 
-	border-radius: 10px;
-	border: 2px solid black;
-	padding: 5px 3px; 
 	width: 100%;
+	margin-top: 20px; 
+	
 }
 
 .content_wrapper .content .incorrect_data {
@@ -35,15 +33,6 @@
 }
 
 .content_wrapper .content input[type='submit'] {
-	margin: auto;
-	margin-top: 20px;
-	border: none;
-	background: blue;
-	color: white;
-	font-size: 18px;
-	padding: 10px;
-	font-weight: 900;
-	border-radius: 10px;
 	width: 100%;
-	cursor: pointer;
+	margin-top: 20px;
 }
