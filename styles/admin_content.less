@@ -2,6 +2,10 @@
 @my_blue: #0000FF;
 @border_thickness: 1px;
 
+.orderby_column {
+	background: #0000d8;
+}
+
 .active_tab_name {
 	color: black;
 	background: white;
@@ -71,6 +75,16 @@
 				th {
 					padding: 10px;
 					color: white;
+					// transition: all .5s;
+
+					label {
+						cursor: pointer;
+					}
+
+					.checkbox_column_header {
+						display: none;
+					}
+
 				}
 			}
 
@@ -78,10 +92,11 @@
 				
 				td {
 					padding: 10px;
+					// transition: all 0.5s;
 				}
 
 				&:hover {
-					background: red;
+					background: lighten(green, 35%);
 				}
 
 			}
@@ -94,6 +109,7 @@
 				display: flex;	
 				flex-direction: row-reverse;
 			}
+
 			.but {
 				background: blue;
 				color: white;
@@ -105,9 +121,18 @@
 				cursor: pointer;
 			}
 
+			.print_buts {
+				flex-direction: row;
+				justify-content: space-between;
+				margin: @my_px 0;
+			}
+
+			.print_but {
+				margin: @my_px/2 0;
+			}
+
 			.modify_buts {
 				justify-content: space-between;
-				margin-bottom: 10px;
 			}
 		}
 

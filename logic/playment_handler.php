@@ -18,6 +18,7 @@
 		array(
 			$_POST['FIO'],
 			(int)$_SESSION['card_id'],
+			(int)$_POST['buy_places'],
 			$_POST['passport_seria'],
 			$_POST['passport_number'],
 			$_POST['validity']

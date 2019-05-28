@@ -12,7 +12,7 @@ function conn_db($db_name) {
 
 
 function get_goods($db_connection, $id=FALSE) {
-	$sql_query = "SELECT t.TO_ID, t.TO_DESCRIPTION, co.CO_NAME, ci.CI_NAME, t.TO_START, t.TO_END, t.TO_PRICE, t.TO_PLACES, ve.VE_NAME FROM tours t INNER JOIN countries co ON t.TO_COUNTRY = co.CO_ID INNER JOIN cities ci ON t.TO_CITY = ci.CI_ID JOIN vehicles ve ON t.TO_VEHICLE = ve.VE_ID WHERE TO_PLACES > 0 ORDER BY TO_START";
+	$sql_query = "SELECT t.TO_ID, t.TO_DESCRIPTION, co.CO_NAME, ci.CI_NAME, t.TO_START, t.TO_END, t.TO_PRICE, t.TO_PLACES, ve.VE_NAME FROM tours t INNER JOIN countries co ON t.TO_COUNTRY = co.CO_ID INNER JOIN cities ci ON t.TO_CITY = ci.CI_ID JOIN vehicles ve ON t.TO_VEHICLE = ve.VE_ID WHERE TO_PLACES > 0 AND TO_START > CURRENT_DATE() ORDER BY TO_START";
 
 	$res = mysqli_query($db_connection, $sql_query);
 

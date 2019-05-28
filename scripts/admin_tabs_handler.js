@@ -1,11 +1,16 @@
 //.toggleClass("class1 class2");
 $(document).ready(function() {
 	show_tab(1);
+	var tab_name_now = 1;
 
 	$('.tab_name').click(function() {
 		var tab_name_id = parseInt($(this).attr('id').match(/\d+/));
 
-		show_tab(tab_name_id);
+		if(tab_name_id != tab_name_now) {
+			show_tab(tab_name_id);
+			tab_name_now = tab_name_id;
+		}
+
 	});		
 	
 });

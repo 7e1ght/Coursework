@@ -8,8 +8,8 @@ function out_click() {
 	$(document).mouseup(
 		function(event) {
 			var div = $(".full_card");
-
-			if(!div.is(event.target) && !$(".cards").is(event.target)) {
+// !$(".cards").is(event.target)
+			if(!div.is(event.target) && div.has(event.target).length === 0) {
 				div.fadeOut(500);
 			}
 

@@ -3,7 +3,7 @@
 	display: none;
 	flex-direction: column;
 
-	top: 200px;
+	top: 100px;
 	left: 50px;
 
 	background: white;
@@ -23,6 +23,7 @@
 
 .full_card .top_box img {
 	border-radius: 10px;
+	margin: 10px 0 10px 0;
 }
 
 .full_card .top_box .info {
@@ -31,7 +32,7 @@
 }
 
 .full_card .lower_box {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	word-wrap: break-word;
 }
 

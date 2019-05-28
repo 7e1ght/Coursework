@@ -17,8 +17,7 @@
 		}
 	}
 
-	function get_table($id) { 
-
+	function get_table($id, $orderby=null) { 
 		$table = get_db_table_by_id($id);
 
 		// $host = '127.0.0.1';
@@ -32,7 +31,7 @@
 
 		echo "<table>";
 		echo "<thead><tr>";
-		echo '<th><input type="checkbox" name="" id="all" class="all_selector"></th>';
+		echo '<th><input type="checkbox" name="" id="all" class="selector"></th>';
 		for ($i=0; $i < $column_num; $i++) { 
 			$row = mysqli_fetch_row($columns);
 
@@ -75,6 +74,8 @@
 					return "НОМЕР ПАСПОРТА";
 				} else if($item == 'VALIDITY') {
 					return "СРОК ДЕЙСТВИЯ ПАСПОРТА";
+				} else if($item == 'BOUGHT') {
+					return "КУПЛЕННЫХ БИЛЕТОВ";
 				}
 				else {
 					return $item;
@@ -95,19 +96,41 @@
 				$header_name = $row[0];
 			}
 
-			echo "<th>" . $header_name . "</th>";
+			echo '<th class="column_header'.
+			($orderby != null ? (in_array($row[0], $orderby)?" orderby_column" : ""): "").'" id="column_header_'.$i.'"> <input type="checkbox" class="checkbox_column_header" id="'.$row[0].'"'.
+			($orderby != null ? (in_array($row[0], $orderby)?"checked" : ""): "").'
+			> <label for="'.$row[0].'">' . $header_name . '</lable></th>';
 		}
 		echo "</tr></thead>";
 
-		$res = mysqli_query($connection, "SELECT * FROM " . $table);
+		$frm_orderby = "";
+
+		if(isset($orderby)) {
+			$orderby_size = count($orderby);
+			$last_i = $orderby_size - 1;
+			for ($i=0; $i < $orderby_size; $i++) { 
+
+				$frm_orderby = $frm_orderby . $orderby[$i];
+
+				if($i != $last_i) {
+					$frm_orderby = $frm_orderby.", ";
+				}
+
+			}
+		} else {
+			$two_letter = substr($table, 0, 2);
+			$frm_orderby = $two_letter . "_id";
+		}
+
+		$res = mysqli_query($connection, "SELECT * FROM " . $table . " ORDER BY " . $frm_orderby);
 
 		for ($i=0; $i < mysqli_num_rows($res); $i++) { 
 			$row = mysqli_fetch_row($res);
 
 			echo '<tbody><tr id="row_id_'.$row[0].'">';
-			echo '<td><input class="body_checkbox" type="checkbox" name="" id="checkbox-'.$row[0].'"></td>';
+			echo '<td><input class="selector body_checkbox" type="checkbox" name="" id="checkbox-'.$row[0].'"></td>';
 			for ($j=0; $j < $column_num; $j++) { 
-				echo '<td>';
+				echo '<td class="table_data" id="column_'.$j.'">';
 				if($j == 0) {
 					echo '<p>'.$row[$j].'</p>';
 				} else {

@@ -5,7 +5,7 @@
 		<nav class="links">
 			<ul>
 				<li>
-					<a href="../../index.php">Главная</a>
+					<a href="../../">Главная</a>
 				</li>
 				<li>
 					<a href="#">О нас</a>

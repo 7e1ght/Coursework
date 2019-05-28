@@ -17,7 +17,7 @@
 
 		if($count == 1) {
 			$_SESSION['login'] = $username;
-			header('Location: ../index.php');
+			header('Location: ../');
 		} else {
 			//echo "<script>document.getElementById('incorrect_data').className += ' show'</script>";
 		} 	

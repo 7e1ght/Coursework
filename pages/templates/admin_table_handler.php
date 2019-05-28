@@ -1,4 +1,4 @@
-<?php 
+	<?php 
 	/*
 		action id 
 		1 - insert 
@@ -25,28 +25,30 @@
 			}
 
 			$error = false;
+			
+			if($data != null) {			
+				foreach ($data as $key) {
+					$id = $key[0];
+					$id_column = $columns[0][0];
+					for ($i=1; $i < count($data[0]); $i++) {
 
-			foreach ($data as $key) {
-				$id = $key[0];
-				$id_column = $columns[0][0];
-				for ($i=1; $i < count($data[0]); $i++) {
+						if($key[$i] == null) {
+							$set_data = "null";
+						} else {
+							$set_data = '"' . $key[$i] .'"';
+						}
 
-					if($key[$i] == null) {
-						$set_data = "null";
-					} else {
-						$set_data = '"' . $key[$i] .'"';
+						$query = "UPDATE " . $cur_db_table . " SET " . $columns[$i][0] . "=" . $set_data . " WHERE " .$id_column. " = " . $id;
+						// echo $query . "<br>"; 
+						if(mysqli_query($connection, $query)) {
+							// echo '<script> alert("Успешно сохранено."); </script>';
+
+						} else {
+							echo '<script> alert("Ошибка сохранения '.$columns[$i][0].'."); </script>';
+							$error = true;
+						}
+
 					}
-
-					$query = "UPDATE " . $cur_db_table . " SET " . $columns[$i][0] . "=" . $set_data . " WHERE " .$id_column. " = " . $id;
-					// echo $query . "<br>"; 
-					if(mysqli_query($connection, $query)) {
-						// echo '<script> alert("Успешно сохранено."); </script>';
-
-					} else {
-						echo '<script> alert("Ошибка сохранения '.$columns[$i][0].'."); </script>';
-						$error = true;
-					}
-
 				}
 			}
 
@@ -55,11 +57,11 @@
 			}
 		};
 
-		if($action_id == 1) {
+		if($action_id == 'insert') {
 			$save();
 			$query = "INSERT INTO " . $cur_db_table . " VALUES()";
 			mysqli_query($connection, $query);
-		} else if($action_id == 2) {
+		} else if($action_id == 'delete') {
 			$checkbox_id = $_GET['data'];	
 
 			$two_letters = substr($cur_db_table, 0, 2);
@@ -78,10 +80,13 @@
 					}
 				}
 			}
-		} else if($action_id == 3) {
+		} else if($action_id == 'save') {
 			if($save()) {
 				echo '<script> alert("Успешно сохранено."); </script>';
 			}
+		} else if($action_id == 'orderby') {
+			get_table($tab_id, $_GET['data']);
+			exit();
 		}
 	}
 

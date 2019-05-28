@@ -5,43 +5,15 @@ $(document).ready(function() {
 		set_content(id);
 	});
 
-
-
 	$('.but').click(function() {
 		var but_id = $(this).attr('id');
 		if (but_id == 'insert') {
-			set_content(get_active_content_id(), 1, get_cells());
+			set_content(get_active_content_id(), but_id, get_cells());
 		} else if (but_id == 'delete') {
-			set_content(get_active_content_id(),  2, get_checked());
+			set_content(get_active_content_id(),  but_id, get_checked());
 		} else if (but_id == 'save') {
-			// var curr_id = get_active_content_id();
-			// var selector = '#tab_content_'+ curr_id + ' table tbody tr';
-			// var main = [];
-			// // alert(selector);
-			// $(selector).each(function() { //tr
-			// 	var temp = [];
-			// 	$(this).children().each(function() { //td
-
-			// 		$(this).children().each(function() { //input:text, p
-			// 			var pp = $(this).prop('tagName');
-
-			// 			if(pp == "P") {
-			// 				// alert($(this).text());
-			// 				temp.push($(this).text());
-			// 			} else if(pp == "INPUT" && $(this).attr('type') == 'text') {
-			// 				// alert($(this).val());
-			// 				temp.push($(this).val());
-			// 			}
-
-			// 		});
-
-			// 	});
-			// 	// alert(temp);
-			// 	main.push(temp);
-			// });
-			// main.push({action_id: 3});
-			set_content(get_active_content_id(), 3, get_cells());
-		}
+			set_content(get_active_content_id(), but_id, get_cells());
+		} 
 	});
 
 });
@@ -99,7 +71,7 @@ function set_content(id, action_id=null, args=''){
 
 function get_checked() {
 	var checkedbox = [];
-	var selection = '#tab_content_'+get_active_content_id()+' input:checked';
+	var selection = '#tab_content_'+get_active_content_id()+' tbody .body_checkbox:checked';
 	$(selection).each(
 		function() {
 			if($(this).attr('id') != 'all') {
