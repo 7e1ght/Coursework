@@ -32,7 +32,7 @@
 				
 			}
 
-			echo "</table>";
+			echo "</table><br><br>";
 			
 		} else { 
 			echo "bad";
@@ -102,12 +102,12 @@
 			draw($q);
 		} else if(isset($_POST['tour_duration'])) {
 			echo "<h3>Продолжительность туров</h3>";
-			$q = "SELECT TO_NAME AS 'Имя тура', DATEDIFF(TO_END, TO_START) AS 'Длительность тура(дни)' FROM tours";
+			$q = "SELECT TO_NAME AS 'Имя тура', DATEDIFF(TO_END, TO_START) AS 'Длительность тура(дней)' FROM tours";
 			draw($q);
 
 			$result = mysqli_query($connection, "SELECT AVG(DATEDIFF(TO_END, TO_START)) FROM tours");
 			$row = mysqli_fetch_row($result);
-			echo "<p>Средняя продолжительность тура: " . $row[0] . "</p>";
+			echo "<h4>Средняя продолжительность тура: " . $row[0] . " дней </h4>";
 		} else if (isset($_POST['list_tour_month_year'])) {
 			echo "<h3>Список туров за каждый год и месяц</h3>";
 			$result = mysqli_query($connection, 
@@ -167,6 +167,6 @@
 	$tcpdf->SetTextColor(0, 0, 0);
 	$tcpdf->SetFont('dejavusans', '', 10, '', true);
 	$tcpdf->writeHTMLcell(0, 0, '', '', $my_html, 0, 1, 0, true, '', true);
-	$tcpdf->Output('test.pdf', 'I');
+	$tcpdf->Output('report.pdf', 'I');
 
 ?>

@@ -106,7 +106,7 @@ function update($table, $set, $conditions) {
 	$connection = conn_db('coursework');
 
 	$query = "UPDATE " . $table . " SET " . $set . " WHERE " . $conditions;
-	$res = mysqli_query($connection, $query);
+	mysqli_query($connection, $query);
 
 	mysqli_close($connection);
 }

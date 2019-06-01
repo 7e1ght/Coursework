@@ -13,7 +13,7 @@
 
 			//$res = mysqli_query($connection, $query);
 
-			$array = get_goods($connection);
+			// $array = get_goods($connection);
 
 			mysqli_close($connection);
 		?>
