@@ -47,26 +47,6 @@ function insert($table, $data) {
 		die("Not equal colomns number and data.");
 	}
 
-	// $query = 'INSERT INTO clients VALUES (NULL, ';
-
-	// for($i = 0; $i < $columns_num; $i++) {
-	// 	$var = $data[$i]; 
-	// 	if(is_integer($var)) {
-	// 		$query = $query . $var;
-	// 		if ($i != $columns_num-1) {
-	// 			$query = $query . ", ";
-	// 		}
-	// 	} else if(is_string($var)){
-	// 		$query = $query . '"' . $var . '"';
-
-	// 		if ($i != $columns_num-1) {
-	// 			$query = $query . ", ";
-	// 		}
-	// 	}
-	// 	else {
-	// 		die ("Unknown type.");
-	// 	}
-	// }
 	$formar_str = "INSERT INTO " . $table . " VALUES (NULL, ";
 
 

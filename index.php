@@ -11,7 +11,7 @@ session_start();
 		$name = "Камчатка";
 		require_once 'pages/templates/head.php'; 
 	?>
-	
+		
 <head>
 <!-- 	<title>Камчатка</title>
 	<meta charset="UTF-8">

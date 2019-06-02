@@ -39,9 +39,7 @@
 						}
 
 						$query = "UPDATE " . $cur_db_table . " SET " . $columns[$i][0] . "=" . $set_data . " WHERE " .$id_column. " = " . $id;
-						// echo $query . "<br>"; 
 						if(mysqli_query($connection, $query)) {
-							// echo '<script> alert("Успешно сохранено."); </script>';
 
 						} else {
 							echo '<script> alert("Ошибка сохранения '.$columns[$i][0].'."); </script>';
@@ -61,7 +59,8 @@
 			$save();
 			$query = "INSERT INTO " . $cur_db_table . " VALUES()";
 			mysqli_query($connection, $query);
-		} else if($action_id == 'delete') {
+		} 
+		else if($action_id == 'delete') {
 			$checkbox_id = $_GET['data'];	
 
 			$two_letters = substr($cur_db_table, 0, 2);

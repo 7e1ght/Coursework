@@ -168,5 +168,4 @@
 	$tcpdf->SetFont('dejavusans', '', 10, '', true);
 	$tcpdf->writeHTMLcell(0, 0, '', '', $my_html, 0, 1, 0, true, '', true);
 	$tcpdf->Output('report.pdf', 'I');
-
 ?>
