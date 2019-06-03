@@ -69,7 +69,7 @@
 
 			draw($query);
 
-			$result = mysqli_query($connection, "SELECT SUM(t.TO_PRICE*c.CL_PLACES_BOUGHT) FROM clients c INNER JOIN tours t ON c.CL_TOUR=t.TO_ID ");
+			$result = mysqli_query($connection, "SELECT SUM(t.TO_PRICE*c.CL_PLACES_BOUGHT) FROM clients c INNER JOIN tours t ON c.CL_TOUR = t.TO_ID");
 
 			$row = mysqli_fetch_row($result);
 
@@ -128,7 +128,7 @@
 			}
 
 			$result = mysqli_query($connection, "SELECT DISTINCT YEAR(TO_START) FROM tours");
-
+			 
 			for($i = 0; $i < $result->num_rows; $i++) {
 				$year_row = mysqli_fetch_row($result);
 
@@ -143,14 +143,6 @@
 			}
 		}
 
-// , t.TO_NAME AS 'Имя тура', countries.CO_NAME AS 'Страна', cities.CI_NAME AS 'Город', t.TO_START AS 'Дата начала' FROM clients c INNER JOIN tours t ON c.CL_TOUR = t.TO_ID INNER JOIN countries ON t.TO_COUNTRY = countries.CO_ID INNER JOIN cities ON t.TO_CITY = cities.CI_ID
-
-
-
-
-
-
-
 		mysqli_close($connection);
 	?>
 </body>
@@ -160,12 +152,16 @@
 	$my_html = ob_get_clean();
 
 	require_once 'tcpdf/tcpdf.php';
-
+	// Создание pdf документа портретной ориентации, с листом А4, где метрическая система в мм, С поддержкой кодировки UTF-8
 	$tcpdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8');
-
+	// Добавляем чистый лист 
 	$tcpdf->AddPage();
+	// Устанавливаем цвет для текста в RGB. (0, 0, 0) - черный цвет
 	$tcpdf->SetTextColor(0, 0, 0);
+	// Устанавливаем шрифт с размером 10мм
 	$tcpdf->SetFont('dejavusans', '', 10, '', true);
+	// Добавляем на лист данные в виде HTML. my_html - это текст нашего HTML документа
 	$tcpdf->writeHTMLcell(0, 0, '', '', $my_html, 0, 1, 0, true, '', true);
+	// Рисуем данные, которые были добавлены на лист
 	$tcpdf->Output('report.pdf', 'I');
 ?>
